@@ -1,4 +1,4 @@
-package inherintance.multilevel;
+package inherintance.hierarchial;
 
 public class Employee extends Person {
 
