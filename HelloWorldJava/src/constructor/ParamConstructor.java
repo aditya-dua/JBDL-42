@@ -24,7 +24,7 @@ public class ParamConstructor extends Constructor{
 	
 	public ParamConstructor(int a) {
 		// TODO Auto-generated constructor stub
-		
+		this();
 		System.out.println("In Int Param constructor");
 		
 	}

@@ -5,6 +5,10 @@ public class Employee extends Person {
 	int salary;
 	String designation;
 	
+	public Employee() {
+		// TODO Auto-generated constructor stub
+		System.out.println("Employee Constructor Called!" );
+	}
 	
 	public void display(){
 		
