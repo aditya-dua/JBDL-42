@@ -1,0 +1,15 @@
+Create a HashMap of string and string
+and insert the following values:
+"1","ABC"
+"2","DEF"
+"3","XYZ"
+"2","QRV"
+
+get of 2 & 1
+
+2 topics:
+1. Concept of Wrapper Classes : Shubham Rawat
+2. Class Conversion or Autoboxing or Type Casting in Java : Priti Sharma
+3. Internal Working of HashSet in Java : Priti Sharma : capcity and how sizing of HashSet
+4. Internal Working of HashMap in Java : Dhairya Jain
+5. How does sizing of ArrayList works internally: Pankaj Prakash
