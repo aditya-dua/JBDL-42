@@ -1,0 +1,10 @@
+1. Thread Neha
+	a. Different methods of thread class
+	b. Diff btw sleep and yield
+	c. How to differ a Daemon thread to a user thread
+	d. Exception handling for thread's interrupt
+2. What is the purpose and internal working of Synchronised? Neha
+3. Explain the use case of deadlock and how can you solve it using thread? Priti
+4. With the help of an Architecture diagram explain a real world scenerio where Threading can help optimsie the  application performance? Chetna
+5. Lifecycle of Thread with sysout? Piyush
+6. What are the different Threads available inside JVM, How do Threads share memory? Priti (https://blog.jamesdbloom.com/JVMInternals.html)

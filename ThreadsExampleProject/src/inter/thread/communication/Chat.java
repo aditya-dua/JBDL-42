@@ -8,12 +8,13 @@ public class Chat {
 	public synchronized void question(String msg) {
 	      if (flag) {
 	         try {
+	        	System.out.println("Question Wait");
 	            wait();
 	         } catch (InterruptedException e) {
 	            e.printStackTrace();
 	         }
 	      }
-	      System.out.println(msg);
+	      System.out.println("Question: " +msg);
 	      flag = true;
 	      notify();
 	   }
@@ -21,13 +22,14 @@ public class Chat {
 	public synchronized void answer(String msg) {
 	      if (!flag) {
 	         try {
+	        	 System.out.println("Answer Wait");
 	            wait();
 	         } catch (InterruptedException e) {
 	            e.printStackTrace();
 	         }
 	      }
 
-	      System.out.println(msg);
+	      System.out.println("Answer: "+msg);
 	      flag = false;
 	      notify();
 	   }
