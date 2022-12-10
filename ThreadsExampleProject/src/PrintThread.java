@@ -20,6 +20,7 @@ public class PrintThread extends Thread{
 			hello.print();
 		}
 		
+		
 	}
 
 }
