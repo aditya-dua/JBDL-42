@@ -17,10 +17,11 @@ public class ThreadExample extends Thread{
 		
 		ThreadExample t2 = new ThreadExample();
 		
-		Thread thread1 = new Thread(t1);
+		//Thread thread1 = new Thread(t1,"Hello World Thread");
 		
+		t1.setPriority(MAX_PRIORITY);
 		
-		thread1.start();
+		//thread1.start();
 		t1.start();
 		t2.start();
 	}
