@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,6 +11,7 @@ public class StreamsExampleMain {
 
 		List<Integer> number = Arrays.asList(1,2,3);
 		
+		Collections.sort(number);
 		List<Integer> square = number.stream()
 				.map(x->x*x)
 				.sorted(Comparator.reverseOrder())
