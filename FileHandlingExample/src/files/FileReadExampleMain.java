@@ -13,6 +13,7 @@ public class FileReadExampleMain {
 		
 		try {
 			File f = new File("myFirstTextFile.txt");
+			System.out.println("The file size is:"+f.length());
 			Scanner reader = new Scanner(f);
 			
 			String data;
