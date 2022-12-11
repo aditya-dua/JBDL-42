@@ -1,0 +1,16 @@
+Imagine you are given a path, you have to find the largest depth of the path?
+
+a
+	abc
+		xqz
+			a.txt
+	def
+		b.txt
+	ghi
+		qrp
+			mno
+				c.txt
+				
+Imagine you are given a path, you have identify duplicate file?
+
+HashSet
