@@ -3,7 +3,25 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<bean id="helloWorld" class="springProject.HelloWorld">
-	<property name="message" value="Hello World"></property>
+	<bean id="helloWorld" class="springProject.HelloWorld" scope = "singleton">
+	<property name="message" value="Hello World" ></property>
 	</bean>
+	<bean id="employee" class="springProject.Employee" scope = "prototype">
+	<property name="name" value="" ></property>
+	</bean>
+	<bean id="emp" class="springProject.Employee" scope = "singleton">
+	<property name="name" value="" ></property>
+	</bean>
+	<bean id="fte" class="springProject.FullTimeEmployee" scope = "singleton">
+	<property name="name" value="" ></property>
+	</bean>
+<!-- 	<bean id="fte1"  -->
+<!-- 	class="springProject.FullTimeEmployee"  -->
+<!-- 	scope = "singleton" -->
+<!-- 	name="name" -->
+<!-- 	init-method="" -->
+<!-- 	lazy-init="default" -->
+<!-- 	destroy-method=""> -->
+	
+<!-- 	</bean> -->
 </beans>
