@@ -11,6 +11,7 @@ public class SpringMain {
 		HelloWorld hwBean = (HelloWorld) context.getBean("helloWorld");
 		System.out.println(hwBean);
 		
+		
 		HelloWorld hwBean1 = (HelloWorld) context.getBean("helloWorld");
 		System.out.println(hwBean1);
 		
@@ -25,8 +26,7 @@ public class SpringMain {
 		
 		Employee emp1Obj = (Employee) context.getBean("emp");
 		System.out.println(emp1Obj);
-		
-		
+	
 		hwBean.print();
 	}
 }

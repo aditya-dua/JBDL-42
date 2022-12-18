@@ -1,0 +1,42 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	
+	<bean id="employee" class="springProject.di.Employee" scope = "prototype" destroy-method="destroy">
+	
+		<property name = "address" ref="address"></property>
+		<property name = "name" value="ABC"></property>
+		
+	
+	</bean>
+	
+	<bean id="address" class="springProject.di.Address">
+	
+	</bean>
+	
+	<bean id="student" class="springProject.di.Student">
+		<property name="marks">
+			<set>
+				<value>80</value>
+				<value>70</value>
+				<value>87</value>
+				<value>93</value>
+				<value>12</value>	
+			</set>
+		</property>
+		<property name="marksMap">
+			<map>
+				<entry key="english" value="90"></entry>
+				<entry key="maths" value="80"></entry>
+				<entry key="physics" value="70"></entry>
+				<entry key="chemistry" value="65"></entry>
+				<entry key="biology" value="85"></entry>
+			</map>
+		</property>
+	</bean>
+	
+	
+	
+</beans>

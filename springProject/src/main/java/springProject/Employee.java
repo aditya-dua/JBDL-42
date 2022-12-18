@@ -15,4 +15,8 @@ public class Employee {
 	public void print() {
 		System.out.println("Name is: "+name);
 	}
+	
+	public void destroy() {
+		System.out.println("Destrol Called");
+	}
 }
