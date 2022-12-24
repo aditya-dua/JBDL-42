@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.gfg.sb.api.crud.crudapiexample.model.Employee;
 import org.gfg.sb.api.crud.crudapiexample.service.EmployeeService;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,6 +44,16 @@ public class EmployeeController {
 	@PostMapping("")
 	public Employee createNewEmployee(@RequestBody Employee emp) {
 		return empService.createNewEmployee(emp);
+	}
+	
+	@PutMapping("/{id}")
+	public Employee updatewEmployee(@RequestBody Employee emp,@PathVariable int id) {
+		return empService.updatewEmployee(emp,id);
+	}
+	
+	@DeleteMapping("/{id}")
+	public Employee deleteEmployee(@PathVariable int id) {
+		return empService.deleteEmployee(id);
 	}
 	
 }
