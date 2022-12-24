@@ -45,6 +45,11 @@ public class EmployeeController {
 	public Employee createNewEmployee(@RequestBody Employee emp) {
 		return empService.createNewEmployee(emp);
 	}
+	@PostMapping("/bulk")
+	public String createNewEmployee(@RequestBody Employee[] emp) {
+		System.out.println("In Bulk Request");
+		return empService.bulkLoadEmployees(emp);
+	}
 	
 	@PutMapping("/{id}")
 	public Employee updatewEmployee(@RequestBody Employee emp,@PathVariable int id) {

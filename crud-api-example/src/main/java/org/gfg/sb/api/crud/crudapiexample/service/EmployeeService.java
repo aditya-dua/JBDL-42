@@ -5,9 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.gfg.sb.api.crud.crudapiexample.model.Employee;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 public class EmployeeService {
 	
@@ -52,6 +49,16 @@ public class EmployeeService {
 		
 		empHM.put(emp.getId(), emp);
 		return empHM.get(emp.getId());
+	}
+	
+	public String bulkLoadEmployees(Employee[] emp) {
+		
+		for (int i = 0; i < emp.length; i++) {
+			empHM.put(emp[i].getId(), emp[i]);
+		}
+		
+		
+		return "Inserted Employees Successfully : "+emp.length;
 	}
 	
 	public Employee updatewEmployee(Employee emp,int id) {
