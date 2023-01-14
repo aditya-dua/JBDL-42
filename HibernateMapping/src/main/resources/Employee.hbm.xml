@@ -1,0 +1,31 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+	<class name ="Employee" table ="employee-mapping-jbdl42">
+	
+	<meta attribute="class-description">Desc</meta>
+	<id name = "id" type = "int" column = "id">
+		<generator class="native"></generator>
+	</id>
+	
+	<property name="firstName" type = "string" column = "firstName"></property>
+	<property name="lastName" type = "string" column = "lastName"></property>
+	<many-to-one name="address" class="Address" column = "address" unique="true"></many-to-one>
+	
+	</class>
+	
+	<class name ="Address" table ="address-mapping-jbdl42">
+	
+	<meta attribute="class-description">Desc</meta>
+	<id name = "id" type = "int" column = "id">
+		<generator class="native"></generator>
+	</id>
+	
+	<property name="street" type = "string" column = "street"></property>
+	<property name="city" type = "string" column = "city"></property>
+	<property name="state" type = "string" column = "state"></property>
+	<property name="zipcode" type = "string" column = "zipcode"></property>
+	</class>
+</hibernate-mapping>
