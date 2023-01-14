@@ -12,7 +12,8 @@
 	
 	<property name="firstName" type = "string" column = "firstName"></property>
 	<property name="lastName" type = "string" column = "lastName"></property>
-	<many-to-one name="address" class="Address" column = "address" unique="true"></many-to-one>
+<!-- 	<many-to-one name="address" class="Address" column = "address" unique="true"></many-to-one> -->
+	<one-to-one name="address" class="Address"></one-to-one>
 	
 	</class>
 	

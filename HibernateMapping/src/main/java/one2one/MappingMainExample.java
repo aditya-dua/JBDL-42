@@ -1,3 +1,4 @@
+package one2one;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -10,7 +11,7 @@ public class MappingMainExample {
 
 		Configuration c = new Configuration();
 		
-		SessionFactory factory = c.configure("hbm.cfg.xml").buildSessionFactory();
+		SessionFactory factory = c.configure("hbm121.cfg.xml").buildSessionFactory();
 		
 		Address address = new Address(1, "Street", "CIty", "State", "ZIPCode");
 		Address address1 = new Address(1, "Street", "CIty", "State", "ZIPCode");
@@ -26,7 +27,7 @@ public class MappingMainExample {
 			tx = session.beginTransaction();
 			session.save(address);
 			session.save(emp);
-			session.save(emp1);
+			//session.save(emp1);
 
 			tx.commit();
 			session.close();

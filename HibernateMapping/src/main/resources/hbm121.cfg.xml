@@ -11,7 +11,8 @@
 		<property name="hibernate.connection.password">password</property>
 		<property name="hbm2ddl.auto">create-drop</property>
 		<property name="hibernate.show_sql">true</property>
-<!-- 		<mapping class="Student"></mapping> -->
-		<mapping resource="Employee.hbm.xml"></mapping>
+ 		<mapping class="one2one.Employee"></mapping>
+ 		<mapping class="one2one.Address"></mapping>
+<!-- 		<mapping resource="Employee.hbm.xml"></mapping> -->
 	</session-factory>
 </hibernate-configuration>
