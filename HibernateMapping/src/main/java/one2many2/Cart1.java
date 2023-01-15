@@ -60,12 +60,12 @@ public class Cart1 {
 	
 	
 	
-	public Cart1(int id, int total, String name, Set<Items1> items) {
+	public Cart1(int id, int total, String name) {
 		super();
 		this.id = id;
 		this.total = total;
 		this.name = name;
-		this.items = items;
+		//this.items = items;
 	}
 	public Cart1() {
 		super();

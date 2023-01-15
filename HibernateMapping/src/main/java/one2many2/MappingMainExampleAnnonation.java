@@ -18,15 +18,16 @@ public class MappingMainExampleAnnonation {
 		
 		SessionFactory factory = c.configure("hbmO2MAnnotation.cfg.xml").buildSessionFactory();
 		
-		Items1 item = new Items1("2", 200, 2, null);
-		Items1 item2 = new Items1("3", 100, 1, null);
+		Cart1 cart = new Cart1(0,200,"myCarts");
+		Items1 item = new Items1("2", 200, 2, cart);
+		Items1 item2 = new Items1("3", 100, 1, cart);
 		
 		Set<Items1> itemSet = new HashSet<Items1>();
 		itemSet.add(item2);
 		itemSet.add(item);
 
 		
-		Cart1 cart = new Cart1(0,200,"myCarts",itemSet);
+		
 		Session session = factory.openSession();
 		
 		Transaction tx;
