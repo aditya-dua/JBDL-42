@@ -32,9 +32,10 @@ public class MappingMainExample {
 		Transaction tx;
 		try {
 			tx = session.beginTransaction();
+			session.save(emp);
 			session.save(address);
 			session.save(address1);
-			session.save(emp);
+			//session.save(emp);
 			//session.save(emp1);
 
 			tx.commit();

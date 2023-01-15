@@ -32,9 +32,12 @@ public class Cart {
 	public void setItems(Set<Items> items) {
 		this.items = items;
 	}
+	
+	
+	
 	@Override
 	public String toString() {
-		return "Cart [id=" + id + ", total=" + total + ", name=" + name + "]";
+		return "Cart [id=" + id + ", total=" + total + ", name=" + name + ", items=" + items + "]";
 	}
 	public Cart(int total, String name, Set<Items> items) {
 		super();

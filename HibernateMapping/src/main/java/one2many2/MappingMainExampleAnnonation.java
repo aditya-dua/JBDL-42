@@ -9,24 +9,24 @@ import org.hibernate.cfg.Configuration;
 
 import one2one.Address;
 
-public class MappingMainExample {
+public class MappingMainExampleAnnonation {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		Configuration c = new Configuration();
 		
-		SessionFactory factory = c.configure("hbmO2M.cfg.xml").buildSessionFactory();
+		SessionFactory factory = c.configure("hbmO2MAnnotation.cfg.xml").buildSessionFactory();
 		
-		Items item = new Items("2", 200, 2);
-		Items item2 = new Items("3", 100, 1);
+		Items1 item = new Items1("2", 200, 2, null);
+		Items1 item2 = new Items1("3", 100, 1, null);
 		
-		Set<Items> itemSet = new HashSet<Items>();
+		Set<Items1> itemSet = new HashSet<Items1>();
 		itemSet.add(item2);
 		itemSet.add(item);
 
 		
-		Cart cart = new Cart(300,"myCart",itemSet);
+		Cart1 cart = new Cart1(0,200,"myCarts",itemSet);
 		Session session = factory.openSession();
 		
 		Transaction tx;
@@ -35,7 +35,7 @@ public class MappingMainExample {
 			session.save(cart);
 			session.save(item);
 			session.save(item2);
-			Cart cartRead = session.get(Cart.class, 1);
+			Cart1 cartRead = session.get(Cart1.class, 1);
 			System.out.println(cartRead);
 			//session.save(emp1);
 
