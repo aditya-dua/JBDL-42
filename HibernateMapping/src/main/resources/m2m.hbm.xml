@@ -1,0 +1,41 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="many2many.Cart" table="CART">
+		<meta attribute="class-description">Desc</meta>
+		<id name="id" type="int" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" type="string" column="name"></property>
+		<property name="total" type="int" column="total"></property>
+
+		<set name="items" table="CART_ITEM" fetch="select" cascade="all">
+			<key>
+				<column name="cart_id"></column>
+			</key>
+			<many-to-many class="many2many.Items" column="item_id" />
+		</set>
+	</class>
+	
+	
+	
+	<class name="many2many.Items" table="Items">
+		<meta attribute="class-description">Desc</meta>
+		<id name="id" type="int" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="itemId" type="string" column="itemId"></property>
+		<property name="itemTotal" type="int" column="itemTotal"></property>
+		<property name="quantity" type="int" column="quantity"></property>
+
+		<set name="carts" table="CART_ITEM" fetch="select" cascade="all">
+			<key>
+				<column name="item_id"></column>
+			</key>
+			<many-to-many class="many2many.Cart" column="cart_id" />
+		</set>
+
+	</class>
+</hibernate-mapping>
