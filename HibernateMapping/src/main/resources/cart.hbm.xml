@@ -1,0 +1,38 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="one2many2.Cart" table="jbdl42-12M-Cart">
+		<meta attribute="class-description">Desc</meta>
+		<id name="id" type="int" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" type="string" column="name"></property>
+		<property name="total" type="int" column="total"></property>
+
+		<set name="items" table="ITEMS" fetch="select">
+			<key>
+				<column name="cart_id"></column>
+			</key>
+			<one-to-many class="one2many2.Items" />
+		</set>
+	</class>
+	
+	
+	
+	<class name="one2many2.Items" table="jbdl42-12M-Items">
+		<meta attribute="class-description">Desc</meta>
+		<id name="id" type="int" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="itemId" type="string" column="itemId"></property>
+		<property name="itemTotal" type="int" column="itemTotal"></property>
+		<property name="quantity" type="int" column="quantity"></property>
+
+		<many-to-one name="cart" class="one2many2.Cart">
+			<column name="cart_id"></column>
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

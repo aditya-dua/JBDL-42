@@ -1,37 +1,40 @@
-package one2one;
+package one2many2;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class MappingMainReadExample {
+public class MappingMainExample {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		Configuration c = new Configuration();
 		
-		SessionFactory factory = c.configure("hbm121.cfg.xml").buildSessionFactory();
+		SessionFactory factory = c.configure("hbmO2M.cfg.xml").buildSessionFactory();
 		
+		Items item = new Items("2", 200, 2);
+		Items item2 = new Items("3", 100, 1);
 		
+		Set<Items> itemSet = new HashSet<Items>();
+		itemSet.add(item2);
+		itemSet.add(item);
 
+		
+		Cart cart = new Cart(300,"myCart",itemSet);
 		Session session = factory.openSession();
 		
 		Transaction tx;
 		try {
 			tx = session.beginTransaction();
-			Address address = session.get(Address.class, 1);
+			session.save(cart);
+			session.save(item);
+			session.save(item2);
 			
-			System.out.println("Address: "+address);
-			
-			//Employee emp = session.get(Employee.class, 1);
-			Employee emp = new Employee();
-			emp.setId(1);
-			session.delete(emp);
-			
-			System.out.println("Employee	: "+emp);
-
-			
+			//session.save(emp1);
 
 			tx.commit();
 			session.close();

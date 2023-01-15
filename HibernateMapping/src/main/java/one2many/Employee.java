@@ -1,4 +1,6 @@
-package one2one;
+package one2many;
+
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -7,33 +9,36 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "jbdl-42-mapping-121-employee")
+@Table(name = "jbdl-42-mapping-M2M-employee")
 public class Employee {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
+	
 	@Column(name = "firstName")
 	private String firstName;
+	
 	@Column(name = "lastName")
 	private String lastName;
 	
-	@OneToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name="address")
-	private Address address;
+	@OneToMany(mappedBy = "id")
+	private Set<Address> address;
 	
 	
-	public Employee(int id, String firstName, String lastName, Address address) {
+	public Employee(int id, String firstName, String lastName) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.address = address;
+		
 	}
 	public Employee() {
 		super();
@@ -57,10 +62,11 @@ public class Employee {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public Address getAddress() {
+	
+	public Set<Address> getAddress() {
 		return address;
 	}
-	public void setAddress(Address address) {
+	public void setAddress(Set<Address> address) {
 		this.address = address;
 	}
 	@Override
