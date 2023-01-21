@@ -41,5 +41,16 @@ public class EmployeeService {
 		
 		
 	}
+	
+	public Employee getEmployeeUsingId(int id) {
+		Session session = sessionFactory.openSession();
+		
+		Employee emp = session.get(Employee.class, id);
+		
+		
+		return emp;
+		
+		
+	}
 
 }

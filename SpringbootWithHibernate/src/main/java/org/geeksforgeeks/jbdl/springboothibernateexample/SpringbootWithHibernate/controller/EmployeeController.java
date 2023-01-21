@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.entity.Employee;
 import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.service.EmployeeService;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +24,13 @@ public class EmployeeController {
 	public List<Employee> getAllEmployees() {
 		
 		return empService.getAllEmployees();
+		
+	}
+	
+	@RequestMapping("/get/{id}")
+	public Employee getEmployeeUsingId(@PathVariable int id) {
+		
+		return empService.getEmployeeUsingId(id);
 		
 	}
 }
