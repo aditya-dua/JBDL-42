@@ -9,7 +9,7 @@
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/classicmodels</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">password</property>
-		<property name="hbm2ddl.auto">create-drop</property>
+		<property name="hbm2ddl.auto">validate</property>
 		<property name="hibernate.show_sql">true</property>
  		<mapping class="org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.entity.Employee"></mapping>
  		
