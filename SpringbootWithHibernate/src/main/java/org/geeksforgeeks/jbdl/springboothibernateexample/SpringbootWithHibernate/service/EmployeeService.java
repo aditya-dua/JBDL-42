@@ -5,11 +5,15 @@ import java.util.List;
 import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.entity.Employee;
 import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.model.CreateEmployeeRequestModel;
 import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.model.CreateEmployeeResponseModel;
+import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.model.DeleteEmployeeResponseModel;
 import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.model.GetEmployeeResponseModel;
+import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.model.UpdateEmployeeRequestModel;
+import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.model.UpdateEmployeeResponseModel;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -96,5 +100,57 @@ public class EmployeeService {
 		return response;
 		
 	}
+	@PostMapping("/post/{id}")
+	public UpdateEmployeeResponseModel updateEmployee(@RequestBody UpdateEmployeeRequestModel emp,@PathVariable int id) {
+		
+		Session session = sessionFactory.openSession();
+		UpdateEmployeeResponseModel response = null;
+		Transaction tx;
+		try {
+			tx = session.beginTransaction();
+			Employee e = new Employee(emp.getFirstName(), emp.getLastName());
+			// Your update logic will go over here!
+			
+			tx.commit();
+			session.close();
+			if(e!=null) {
+				response = new UpdateEmployeeResponseModel(e.getId(), e.getFirstName(), e.getLastName(),200);
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			response = new UpdateEmployeeResponseModel(0, emp.getFirstName(), emp.getLastName(),500);
+
+		}
+		
+		return response;
+		
+	}
+	
+	@PostMapping("/delete/{id}")
+	public DeleteEmployeeResponseModel deleteEmployee(@PathVariable int id) {	
+		Session session = sessionFactory.openSession();
+		DeleteEmployeeResponseModel response = null;
+		Transaction tx;
+		try {
+			tx = session.beginTransaction();
+			
+			// Your delete logic will go over here!
+			response = new DeleteEmployeeResponseModel(id,200);
+			tx.commit();
+			session.close();
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			response = new DeleteEmployeeResponseModel(0,500);
+
+		}
+		
+		return response;
+		
+	}
+	
+	
 
 }

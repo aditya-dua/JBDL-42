@@ -5,7 +5,10 @@ import java.util.List;
 import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.entity.Employee;
 import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.model.CreateEmployeeRequestModel;
 import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.model.CreateEmployeeResponseModel;
+import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.model.DeleteEmployeeResponseModel;
 import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.model.GetEmployeeResponseModel;
+import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.model.UpdateEmployeeRequestModel;
+import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.model.UpdateEmployeeResponseModel;
 import org.geeksforgeeks.jbdl.springboothibernateexample.SpringbootWithHibernate.service.EmployeeService;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,5 +48,16 @@ public class EmployeeController {
 		
 		return empService.postEmployee(emp);
 		
+	}
+	
+	@PostMapping("/post/{id}")
+	public UpdateEmployeeResponseModel updateEmployee(@RequestBody UpdateEmployeeRequestModel emp,@PathVariable int id) {		
+		return empService.updateEmployee(emp,id);
+		
+	}
+	
+	@PostMapping("/delete/{id}")
+	public DeleteEmployeeResponseModel deleteEmployee(@PathVariable int id) {	
+		return empService.deleteEmployee(id);
 	}
 }
