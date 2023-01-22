@@ -43,7 +43,7 @@ public class EmployeeService {
 		CriteriaQuery<Employee> cqEmp = cb.createQuery(Employee.class);
 		Root<Employee> rootEntry = cqEmp.from(Employee.class);
 		CriteriaQuery<Employee> all = cqEmp.select(rootEntry);
-		
+		all.orderBy(cb.asc(rootEntry.get("firstName")));
 		TypedQuery<Employee> allQuery = session.createQuery(all);
 			
 		return allQuery.getResultList();
