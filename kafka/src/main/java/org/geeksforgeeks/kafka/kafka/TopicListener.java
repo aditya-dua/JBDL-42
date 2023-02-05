@@ -15,6 +15,8 @@ public class TopicListener {
 		System.out.println("Topic Name :"+payload.topic());
 		System.out.println("Key:"+payload.key());
 		System.out.println("Value:"+payload.value());
+		System.out.println("To String :"+payload.toString());
+
 
 
 		// This is where database comes into picture...and here we push the data into DB.
