@@ -27,7 +27,7 @@ public class Controller {
         answer.put("avatar_url", principal.getAttribute("avatar_url"));
         answer.put("company", principal.getAttribute("company"));
         return answer;
-//		return Collections.singletonMap("name", principal.getAttribute("name"));
+
     }
 
     @RequestMapping("/user_details")

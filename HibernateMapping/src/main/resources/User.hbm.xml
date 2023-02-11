@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="User" table="UserData">
+<id name="Id" type="long" column="ID">
+<generator class="native" />
+</id>
+<property name="UserId" type="int" length="100" not-null="false"
+column="USER_ID" />
+<property name="UserName" type="java.lang.String" length="100"
+not-null="false" column="USER_NAME" />
+<property name="UserAddr" type="java.lang.String" length="100"
+not-null="false" column="USER_ADDR" />
+<property name="UserPhone" type="java.lang.String" length="100"
+not-null="false" column="USER_PHONE" />
+<property name="UserEmail" type="java.lang.String" length="100"
+not-null="false" column="USER_EMAIL" />
+<property name="UserDOB" type="java.util.Date" not-null="false"
+column="USER_DOB" />
+<property name="expInMonth" type="int" not-null="false"
+column="EXP_IN_MONTH" />
+<property name="UserIncome" type="double" not-null="false"
+column="USER_INCOME" />
+</class>
+</hibernate-mapping>
